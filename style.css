@@ -1,0 +1,94 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100;
+            font-family: sans-serif;
+        }
+
+        .link {
+            font-size: 24px;
+        }
+
+        section {
+            background-color: beige;
+            min-height: 60vh;
+            padding: 0px;
+            border: 3px red solid;
+
+
+
+        }
+
+        header {
+            width: 100%;
+            background-color:orangered;
+            padding: 30px1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-size: 48px;
+            border-style: dashed;
+            border-width: 8px;
+        }
+
+        .container {
+            background-color: antiquewhite;
+            width: 50;
+            padding: 40px;
+            display: flex;
+            border-style: solid;
+            border-color: aliceblue;
+            text-align: left;
+            color: black;
+        }
+
+        .content-container {
+            background-color: blue;
+            width: 50;
+            justify-content: center;
+            border-style: solid;
+            border-color: lightcoral;
+            position: relative;
+
+        }
+
+        .li {
+            font-size: 70px;
+            font: weight 500px;
+            ;
+            text-align: left;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: left;
+            font-size: 30px;
+            font-weight: 600;
+            color: blue;
+        }
+
+
+        a {
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 40px;
+        }
+
+        hi {
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: coral;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-style: solid;
+            border-color: lightcoral;
+            border-width: 15px;
+        }
