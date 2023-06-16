@@ -1,77 +1,65 @@
-
 'use strict';
-// Logic Here is to ensure the user is of age for the Quiz!
-var name = prompt("Hello! What is your name?");
-var result = confirm("Welcome to My Site, " + name + "!" + "   It's a great honour meeting you!");
-alert ("Would you want to know more about me " + name + "?");
 
-// This function is to normalize user input and validate the answer
-function normalizeAndValidateAnswer(answer, correctAnswer) {
-    answer = answer.toLowerCase();
-  
-  }
+var Name = prompt("Hello! What is your name?");
+var result = confirm("Welcome to My Site, " + Name + "!");
 
-alert ("It's all in my bio. Let's rock and roll!!!");
+let userInput = prompt("Ready for an 'About Me' game quiz? Yes/Y or No/N ONLY");
 
-function startQuiz() {
-    // Counter variable to track the question number
-    var questionNumber = 0;
-}
-    // Prompt the user with each question
-    if (questionNumber === 0) {
-      promptQuestion("Do you have children?", "yes");
-      questionNumber++;
-    }
-
-// Function to prompt the user with a question and validate the answer
-function promptQuestion(question, correctAnswer) {
-  const userAnswer = prompt(question);
-
-  // Normalize user input
-  const normalizedUserAnswer = userAnswer.toLowerCase();
-
-  // Validate the answer
-  if (
-    normalizedUserAnswer === "yes" ||
-    normalizedUserAnswer === "no"
-  ) {
-    if (normalizedUserAnswer === correctAnswer.toLowerCase()) {
-      alert("Fantastic! You Got that Right!");
-    } else {
-      alert("Oops! That's Wrong. Sorry!");
-    }
-  } else if (userAnswer === null) {
-    alert("You did not provide an answer.");
-  } else {
-    alert("Please provide a valid answer (yes or no).");
-  }
+if (userInput.toUpperCase() === "Y" || userInput.toUpperCase() === "YES") {
+  // User chose yes
+  alert("You selected yes!");
+} else if (userInput.toUpperCase() === "N" || userInput.toUpperCase() === "NO") {
+  // User chose no
+  alert("You selected no!");
+} else {
+  // Invalid input
+  alert("Please enter 'Yes' or 'Y' for Yes, or 'No' or 'N' for No. Thank you, " + userInput + "!");
 }
 
 // Counter variable to track the question number
 var questionNumber = 0;
 
-// Prompt the user with each question
-if (questionNumber === 0) {
-  promptQuestion("Do you have children?", "yes");
-  questionNumber++;
+// Function to prompt the user with a question and validate the answer
+function promptQuestion(question, correctAnswer) {
+  const userAnswer = prompt(question);
+  
+  // Normalize user input
+  const normalizedUserAnswer = userAnswer.toUpperCase();
+
+  // Validate the answer
+  if (normalizedUserAnswer === correctAnswer.toUpperCase()) {
+    alert("Fantastic! It seems like you know me!");
+  } else {
+    alert("Oops! You can do better next time!");
+  }
 }
 
-if (questionNumber === 1) {
-  promptQuestion("Do you want to be a web developer?", "yes");
-  questionNumber++;
+// Continue with the other questions and prompts inside the loop
+while (questionNumber < 5) {
+  if (questionNumber === 0) {
+    promptQuestion("I am from Nigeria?", "YES");
+    questionNumber++;
+  }
+
+  if (questionNumber === 1) {
+    promptQuestion("Do I have a Masters in Education?", "YES");
+    questionNumber++;
+  }
+
+  if (questionNumber === 2) {
+    promptQuestion("Have I worked in the Medical Industry?", "NO");
+    questionNumber++;
+  }
+
+  if (questionNumber === 3) {
+    promptQuestion("Do I love family life?", "YES");
+    questionNumber++;
+  }
+
+  if (questionNumber === 4) {
+    promptQuestion("Do I have future plans for mountain climbing?", "NO");
+    questionNumber++;
+  }
 }
 
-if (questionNumber === 2) {
-  promptQuestion("Is blue your favorite color?", "yes");
-  questionNumber++;
-}
-
-if (questionNumber === 3) {
-  promptQuestion("Is China one of your future travel plans?", "no");
-  questionNumber++;
-}
-
-if (questionNumber === 4) {
-  promptQuestion("Is Egusi Soup one of your favorite delicacies in Nigeria?", "yes");
-  questionNumber++;
-}
+alert("Thank you " + name + ". It was great meeting you!");
