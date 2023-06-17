@@ -94,7 +94,7 @@ while (attempt > 0) {
 var correctAnswers = ["apple", "banana", "orange", "grape", "kiwi"];
 var attempts = 6;
 var userAnswer;
-var guessedCorrectly = false;
+guessedCorrectly = false;
 
 while (attempts > 0) {
   userAnswer = prompt("Guess a fruit:");

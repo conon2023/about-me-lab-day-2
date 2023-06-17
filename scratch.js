@@ -78,6 +78,7 @@ while (attempts > 0) {
 var fruitAnswers = ["apple", "banana", "orange", "grape", "kiwi"];
 var attemptsLeft = 6;
 var correctFruitCount = 0;
+guessedCorrectly = false; // Remove the 'var' keyword here
 
 while (attemptsLeft > 0) {
   var userFruitAnswer = prompt("Guess a fruit:");
@@ -86,6 +87,7 @@ while (attemptsLeft > 0) {
   if (fruitAnswers.includes(normalizedUserFruitAnswer)) {
     alert("Correct! Your guess is one of the possible correct answers.");
     correctFruitCount++;
+    guessedCorrectly = true;
     break;
   } else {
     alert("Wrong! Try again.");
@@ -93,7 +95,7 @@ while (attemptsLeft > 0) {
   }
 }
 
-if (attemptsLeft === 0) {
+if (attemptsLeft === 0 && !guessedCorrectly) {
   alert("Sorry, you ran out of attempts. The possible correct answers were: " + fruitAnswers.join(", "));
 }
 
