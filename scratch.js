@@ -1,98 +1,100 @@
 'use strict';
 
-// Function to prompt the user with a question and validate the answer
+var Name = prompt("Hello! What is your name?");
+var result = confirm("Welcome to My Site, " + Name + "!");
 
-let username = prompt("Hi user! Please tell me your name");
+var userInput = prompt("Ready for an 'About Me' game quiz? Yes/Y or No/N ONLY");
 
-// Guess the number I am thinking
-let guess = prompt("Can you guess the number I am thinking of?");
-let correct = 6;
-
-function answer (a, b) 
-if (a === b) {
-  alert("Correct, you guessed the right answer");
+if (userInput.toLowerCase() === "y" || userInput.toLowerCase() === "yes") {
+  alert("You selected yes!");
+} else if (userInput.toUpperCase() === "N" || userInput.toUpperCase() === "NO") {
+  alert("You selected no!");
 } else {
-  alert("Sorry! Try again.");
+  alert("Please enter 'Yes' or 'Y' for Yes, OR 'No' or 'N' for No.");
 }
 
-answer(guess, correct);
-console.log (answer)
+var questions = [
+  "I am from Nigeria?",
+  "Do I have a Masters in Education?",
+  "Have I worked in the Medical Industry?",
+  "Do I love family life?",
+  "Do I have future plans for mountain climbing?"
+];
 
-//   // Normalize user input
-//   const normalizedUserAnswer = userAnswer.toLowerCase();
+var correctAnswers = [
+  "YES",
+  "YES",
+  "NO",
+  "YES",
+  "NO"
+];
 
-//   // Validate the answer
-//   if (normalizedUserAnswer === "yes" || normalizedUserAnswer === "no") {
-//     if (normalizedUserAnswer === correctAnswer.toLowerCase()) {
-//       alert("Fantastic! You Got that Right!");
-//     } else {
-//       alert("Oops! That's Wrong. Sorry!");
-//     }
-//   } else if (userAnswer === null) {
-//     alert("You did not provide an answer.");
-//   } else {
-//     alert("Please provide a valid answer (yes or no).");
-//   }
-// }
+var correctCount = 0;
 
-// // Function to start the quiz
-// function startQuiz() {
-//   // Counter variable to track the question number
-//   var questionNumber = 0;
+for (var i = 0; i < questions.length; i++) {
+  promptQuestion(questions[i], correctAnswers[i]);
+}
 
-//   // Prompt the user with each question
-//   if (questionNumber === 0) {
-//     promptQuestion("Do I have Masters in Education?", "yes");
-//     questionNumber++;
-//   }
+function promptQuestion(question, correctAnswer) {
+  var userAnswer = prompt(question);
+  var normalizedUserAnswer = userAnswer.toUpperCase();
+  var normalizedCorrectAnswer = correctAnswer.toUpperCase();
 
-//   if (questionNumber === 1) {
-//     promptQuestion("Have I worked in the Medical Industry?", "no");
-//     questionNumber++;
-//   }
+  if (normalizedUserAnswer === normalizedCorrectAnswer || normalizedUserAnswer === normalizedCorrectAnswer.substring(0, 1)) {
+    alert("Correct! Good job!");
+    correctCount++;
+  } else {
+    alert("Oops! That's incorrect.");
+  }
+}
 
-//   if (questionNumber === 2) {
-//     promptQuestion("Do I love family life?", "yes");
-//     questionNumber++;
-//   }
+alert("You answered " + correctCount + " out of " + questions.length + " questions correctly.");
 
-//   if (questionNumber === 3) {
-//     promptQuestion("Is China a travel destination for me?", "no");
-//     questionNumber++;
-//   }
+var correctNumber = 4;
+var attempts = 4;
+var guessedCorrectly = false;
 
-//   if (questionNumber === 4) {
-//     promptQuestion("Do I have future plans for mountain climbing?", "no");
-//     questionNumber++;
-//   }
-// }
+while (attempts > 0) {
+  var userInput1 = prompt("Guess the number:");
+  var userGuess = parseInt(userInput1);
 
-// // // Function to handle the button click event
-// // function handleButtonClick() {
-// //   // Prompt the user with each question
-// //   promptQuestion("Do you have children?", "yes");
-// //   promptQuestion("Do you want to be a web developer?", "yes");
-// //   promptQuestion("Is blue your favorite color?", "yes");
-// //   promptQuestion("Is China one of your future travel plans?", "no");
-// //   promptQuestion("Is Egusi Soup one of your favorite delicacies in Nigeria?", "yes");
+  if (userGuess < correctNumber) {
+    alert("Wrong! Answer is too low");
+  } else if (userGuess > correctNumber) {
+    alert("Wrong! Answer is too high");
+  } else if (userGuess === correctNumber) {
+    alert("Fantastic! You are amazing!");
+    guessedCorrectly = true;
+    break;
+  }
 
+  attempts--;
 
-// // Get the button element by its ID
-// var startButton = document.getElementById('startButton');
+  if (attempts === 0 && !guessedCorrectly) {
+    alert("Sorry! Your chances are up. The correct number is 4");
+  }
+}
 
-// // Attach the event listener to the button
-// startButton.addEventListener('click', handleButtonClick);
+var fruitAnswers = ["apple", "banana", "orange", "grape", "kiwi"];
+var attemptsLeft = 6;
+var correctFruitCount = 0;
 
-// // Logic Here is to ensure the user is of age for the Quiz!
-// var name = prompt("Hello! What is your name?");
-// var result = confirm("Welcome to My Site, " + name + "!" + "   It's a great honour meeting you!");
-// alert("Would you want to know more about me " + name + "?");
-// alert("It's all in my bio. Let's rock and roll!!!");
+while (attemptsLeft > 0) {
+  var userFruitAnswer = prompt("Guess a fruit:");
+  var normalizedUserFruitAnswer = userFruitAnswer.toLowerCase();
 
-// // Create a button element
-// var startButton = document.createElement("button");
-// startButton.textContent = "Start Quiz";
-// startButton.addEventListener("click", startQuiz);
+  if (fruitAnswers.includes(normalizedUserFruitAnswer)) {
+    alert("Correct! Your guess is one of the possible correct answers.");
+    correctFruitCount++;
+    break;
+  } else {
+    alert("Wrong! Try again.");
+    attemptsLeft--;
+  }
+}
 
-// // Append the button to the body of the document
-// document.body.appendChild(startButton);
+if (attemptsLeft === 0) {
+  alert("Sorry, you ran out of attempts. The possible correct answers were: " + fruitAnswers.join(", "));
+}
+
+alert("You answered " + correctFruitCount + " out of 1 question correctly.");
