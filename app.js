@@ -5,16 +5,19 @@ var result = confirm("Welcome to My Site, " + Name + "!");
 
 let userInput = prompt("Ready for an 'About Me' game quiz? Yes/Y or No/N ONLY");
 
-if (userInput.toUpperCase() === "Y" || userInput.toUpperCase() === "YES") {
+// if (userInput.toUpperCase() === "Y" || userInput.toUpperCase() === "YES") {
   // User chose yes
-  alert("You selected yes!");
-} else if (userInput.toUpperCase() === "N" || userInput.toUpperCase() === "NO") {
-  // User chose no
-  alert("You selected no!");
-} else {
-  // Invalid input
-  alert("Please enter 'Yes' or 'Y' for Yes, or 'No' or 'N' for No. Thank you, " + userInput + "!");
-}
+
+  if (userInput.toLowerCase() === "y" || userInput.toLowerCase() === "yes") {
+    // User chose yes
+    alert("You selected yes!");
+  } else if (userInput.toUpperCase() === "N" || userInput.toUpperCase() === "NO") {
+    // User chose no
+    alert("You selected no!");
+  } else {
+    // Invalid input
+    alert("Please enter 'Yes' or 'Y' for Yes, OR 'No' or 'N' for No.");
+  }
 
 // Counter variable to track the question number
 var questionNumber = 0;
@@ -26,8 +29,11 @@ function promptQuestion(question, correctAnswer) {
   // Normalize user input
   const normalizedUserAnswer = userAnswer.toUpperCase();
 
+  // Normalize correct answer
+  const normalizedCorrectAnswer = correctAnswer.toUpperCase();
+
   // Validate the answer
-  if (normalizedUserAnswer === correctAnswer.toUpperCase()) {
+  if (normalizedUserAnswer === normalizedCorrectAnswer || normalizedUserAnswer === normalizedCorrectAnswer.substring(0, 1)) {
     alert("Fantastic! It seems like you know me!");
   } else {
     alert("Oops! You can do better next time!");
