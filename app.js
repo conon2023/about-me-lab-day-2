@@ -5,9 +5,6 @@ var result = confirm("Welcome to My Site, " + Name + "!");
 
 let userInput = prompt("Ready for an 'About Me' game quiz? Yes/Y or No/N ONLY");
 
-// if (userInput.toUpperCase() === "Y" || userInput.toUpperCase() === "YES") {
-  // User chose yes
-
   if (userInput.toLowerCase() === "y" || userInput.toLowerCase() === "yes") {
     // User chose yes
     alert("You selected yes!");
@@ -68,4 +65,29 @@ while (questionNumber < 5) {
   }
 }
 
-alert("Thank you " + name + ". It was great meeting you!");
+//Time for number guessing game
+
+let correctNumber = 4;
+let attempts = 4;
+let guessedCorrectly = false;
+
+while (attempts > 0) {
+  let userInput1 = prompt("Guess the number:");
+  let userGuess = parseInt(userInput1);
+  
+  if (userGuess < correctNumber) {
+    alert("Wrong! Answer is too low");
+  } else if (userGuess > correctNumber) {
+    alert("Wrong! Answer is too high");
+  } else if (userGuess === correctNumber) {
+    alert("Fantastic! You are amazing!");
+    guessedCorrectly = true; // Update guessedCorrectly to true
+    break; // Exit the loop since the answer is correct
+  }
+  
+  attempts--;
+
+  if (attempts === 0 && !guessedCorrectly) {
+    alert("Sorry! Your chances are up. The correct number is 4. Bye " + Name + "!");
+  }
+}
